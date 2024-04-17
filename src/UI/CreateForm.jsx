@@ -16,7 +16,9 @@ function CreateForm() {
   function handleSubmit(e) {
     e.preventDefault();
     createEntry(formState);
-    navigate("/read");
+    setTimeout(() => {
+      navigate("/read");
+    }, 1000);
   }
   return (
     <>

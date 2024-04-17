@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 
 function GlobalLayout() {
   return (
-    <div className=" min-h-screen bg-slate-100 font-mono">
+    <div className=" bg-slate-102 min-h-screen font-mono">
       <Navbar />
       <div className="p-10">
         <Outlet />

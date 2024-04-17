@@ -1,9 +1,10 @@
 export async function createEntry(formState) {
   try {
-    const res = await fetch(`${import.meta.env.VITE_URL_API}/blog`, {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/blog`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
       body: JSON.stringify(formState),
     });
@@ -20,7 +21,6 @@ export async function createEntry(formState) {
 }
 
 export async function getEntries(url) {
-  console.log("url", url);
   try {
     const res = await fetch(url);
     if (!res.ok) {
@@ -38,13 +38,12 @@ export async function getEntries(url) {
 
 export async function getSingleEntry(id) {
   try {
-    const res = await fetch(`${import.meta.env.VITE_URL_API}/blog/${id}`);
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/blog/${id}`);
     if (!res.ok) {
       const { error } = res.json();
       throw new Error(error);
     }
     const data = await res.json();
-    console.log({ data });
     return { data };
   } catch (error) {
     console.log(error);

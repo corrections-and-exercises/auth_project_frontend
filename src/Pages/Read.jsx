@@ -8,13 +8,13 @@ function Read() {
   useEffect(() => {
     fetchData();
     async function fetchData() {
-      const { data } = await getEntries(`${import.meta.env.VITE_URL_API}/blog`);
+      const { data } = await getEntries(`${import.meta.env.VITE_API_URL}/blog`);
       console.log("data2", data);
       setEntries(data);
     }
   }, []);
   return (
-    <div className="flex justify-center">
+    <div className="flex flex-wrap justify-center">
       {entries.map((entry) => (
         <Link key={entry._id} to={entry._id}>
           <EntryPreview key={entry._id} entry={entry} />
