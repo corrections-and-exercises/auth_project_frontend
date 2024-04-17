@@ -16,10 +16,13 @@ function AuthForm({ inputList, request }) {
   async function handleSubmit(e) {
     e.preventDefault();
     setLoadingAuthRequest(true);
-    const { token } = await request(formState);
+    const { error, token } = await request(formState);
+    console.log("error", error);
+    if (error) {
+      return navigate("/");
+    }
     setToken(token);
     localStorage.setItem("token", token);
-    console.log("setting");
     setIsAuthenticated(true);
     setLoadingAuthRequest(false);
     navigate("/private/dashboard ");

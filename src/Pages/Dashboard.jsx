@@ -22,7 +22,7 @@ function Dashboard() {
     <div className="flex">
       <div className="w-1/2">
         <h1 className="mb-10">Dashboard</h1>
-        <Link className=" py-6 hover:text-orange-700 " to="/create">
+        <Link className=" py-6 hover:text-orange-700 " to="/private/create">
           Create a new entry!
         </Link>
       </div>

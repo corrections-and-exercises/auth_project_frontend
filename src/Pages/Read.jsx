@@ -9,7 +9,6 @@ function Read() {
     fetchData();
     async function fetchData() {
       const { data } = await getEntries(`${import.meta.env.VITE_API_URL}/blog`);
-      console.log("data2", data);
       setEntries(data);
     }
   }, []);
